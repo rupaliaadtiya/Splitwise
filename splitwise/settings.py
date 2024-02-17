@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',    
     'rest_framework_simplejwt',
+    'django_crontab',
     'account',
     'expense',
 ]
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'splitwise.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        "DIRS": [BASE_DIR / "expense/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -177,3 +178,13 @@ LOGGING = {
         },
     },
 }
+CRONJOBS = [
+    ('*/1 * * * *', 'expense.cron.send_weekly_email')
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = '' 

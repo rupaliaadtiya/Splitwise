@@ -5,10 +5,26 @@ from expense import serializers, models
 from account.models import User
 from django.db.models import Sum, F, Q
 from rest_framework.parsers import MultiPartParser, FormParser
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from rest_framework.permissions import IsAuthenticated 
 
 # Create your views here.
+def send_expense_notification_email(user, amount_owed, expense_name):
+    subject = 'Expense Notification'
+    message = f'You have been added to the expense "{expense_name}" and owe {amount_owed}.'
+    html_message = render_to_string('expense_notification_email.html', {
+        'user': user,
+        'amount_owed': amount_owed,
+        'expense_name': expense_name,
+    })
+    from_email = 'your_email@example.com'
+    recipient_list = [user.email]
+    send_mail(subject, message, from_email, recipient_list, html_message=html_message)
+
 class CreateGroupApiView(APIView):
     serializer_class = serializers.GroupSerializer
+    permission_classes = (IsAuthenticated,)
     def post(self, request) -> Response:
         ids = request.data.get('members', [])
         user_ids = []
@@ -22,6 +38,7 @@ class CreateGroupApiView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class AddUserToGroupApiView(APIView):
+    permission_classes = (IsAuthenticated,)
     def post(self, request) -> Response:
         group_id = request.data.get('group_id')
         user_id = request.data.get('user_id')
@@ -34,6 +51,7 @@ class AddUserToGroupApiView(APIView):
 
 class CreateExpenseApiView(APIView):
     serializer_class = serializers.ExpenseSerializer
+    permission_classes = (IsAuthenticated,)
     #parser_classes = (MultiPartParser, FormParser)
     def post(self, request) -> Response:
         all_users = request.data.get('users')
@@ -101,6 +119,7 @@ class CreateExpenseApiView(APIView):
         repayments = []
         for user in all_users:
             if user != paid_by_user:
+                send_expense_notification_email(user, per_member_share_dict.get(user, per_member_share), bill_name)
                 debt = models.Debt.objects.create(**{"from_user": paid_by_user,
                                                      "to_user": user,
                                                      "amount": per_member_share_dict.get(user, per_member_share)})
