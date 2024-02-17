@@ -553,3 +553,4 @@ Bad Request: /api/addExpense
 "POST /api/addExpense HTTP/1.1" 400 59
 C:\xampp\htdocs\splitwise\expense\views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
