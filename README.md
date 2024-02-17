@@ -20,7 +20,7 @@ The Expense Tracker System described in the architecture diagram follows a stand
 
 API Contracts
 
-**POSR /addUser**
+**POST /addUser**
 ----
   Add user in the system.
 * **URL Params**  
@@ -41,4 +41,129 @@ API Contracts
 {
     "message": "User added successfully"
 }
+```
+
+**POST /login**
+----
+  Login user in the system.
+* **URL Params**  
+  None
+* **Data Params**  
+{
+    "email": "rupali@gmail.com",
+    "password": "Rupali@1234"
+}
+* **Headers**  
+  Content-Type: application/json  
+* **Success Response:**  
+* **Code:** 200  
+  **Content:**  
+```
+{
+    "user_id": 2,
+    "email": "rupali@gmail.com",
+    "name": "Rupali",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwODI1MDMyNSwiaWF0IjoxNzA4MTYzOTI1LCJqdGkiOiJhMjdmNjEyMWQzZWY0ZmY4YmY4MzY4Y2Y5YTk2OThmOCIsInVzZXJfaWQiOjJ9.vcUo3C0tEJCGSmXD4V6qQwTpBlDYVV7WGPVsjxJ_ki0",
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4MTY2OTI1LCJpYXQiOjE3MDgxNjM5MjUsImp0aSI6ImVhN2JiMzI5ZjYzNDRmNDI4ODY5YjA0NDY1OWI3YzcxIiwidXNlcl9pZCI6Mn0.QAqwuehDViyzt66m8fP9O1VN6MuW7xLGksH5IQSj-7M"
+}
+```
+
+**POST /createGroup**
+----
+  Create a group.
+* **URL Params**  
+  None
+* **Data Params**  
+{
+    "group_name": "Party",
+    "members": [
+        "2"
+    ]
+}
+* **Headers**  
+  Content-Type: application/json  
+* **Success Response:**  
+* **Code:** 200  
+  **Content:**  
+```
+{
+    "message": "Group Created successfully"
+}
+```
+
+**POST /addUserToGroup**
+----
+  Add a user to a group.
+* **URL Params**  
+  None
+* **Data Params**  
+{
+    "group_id":"2",
+    "user_id": "5"
+}
+* **Headers**  
+  Content-Type: application/json  
+* **Success Response:**  
+* **Code:** 200  
+  **Content:**  
+```
+{
+    "message": "User successfully added to group"
+}
+```
+
+**POST /addExpense**
+----
+  Add an expense, including splitting among group members.
+* **URL Params**  
+  None
+* **Data Params**  
+{
+    "users" : [
+        "2",
+        "3",
+        "4",
+        "5"
+    ],
+    "amount": 1000,
+    "paid_by": "2",
+    "group_id": "1",
+    "date":"2024-02-16",
+    "bill_name":"Electricity Bill",
+    "split_type":"equal",
+    "notes":"Electricity Bill Paid By Rupali"
+}
+* **Headers**  
+  Content-Type: application/json  
+* **Success Response:**  
+* **Code:** 200  
+  **Content:**  
+```
+{
+    "message": "Expense Created successfully"
+}
+```
+
+**POST /groupDetails**
+----
+  Retrieve details of group expenses.
+* **URL Params**  
+    *Required:* `id=[integer]`
+* **Data Params**  
+None
+* **Headers**  
+  Content-Type: application/json  
+* **Success Response:**  
+* **Code:** 200  
+  **Content:**  
+```
+[
+    {
+        "message": [
+            "Shivani owes Rupali 500 (250 + 250)",
+            "Ritisha owes Rupali 500 (250 + 250)",
+            "Sakshi owes Rupali 500 (250 + 250)"
+        ]
+    }
+]
 ```
