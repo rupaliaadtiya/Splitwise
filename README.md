@@ -17,3 +17,15 @@ The Expense Tracker System described in the architecture diagram follows a stand
 
 3. URLs (`urls.py`):
    - Defines the API endpoints for adding users, logging in, creating groups, adding users to groups, creating expenses, and retrieving group details.
+
+1. Add User
+Endpoint: POST /api/addUser
+Request:
+json
+Copy code
+{
+  "email": "rupali@gmail.com",
+  "name": "Rupali",
+  "mobile": "8872396530",
+  "password": "Rupali@1234"
+}
