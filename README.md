@@ -1,47 +1,19 @@
-{
-    "users" : [
-        "3",
-        "4"
-    ],
-    "amount": 1250,
-    "paid_by": "2",
-    "group_id": "1",
-    "date":"2024-02-16",
-    "bill_name":"Flipkart Sale Bill",
-    "split_type":"exact",
-    "exact_amounts":[370,880],
-    "notes":"Flipkart Sale Bill Paid By Rupali"
-}
+The Expense Tracker System described in the architecture diagram follows a standard API-based design using Django and Django Rest Framework (DRF). The key components of the system are:
 
-{
-    "users" : [
-        "2",
-        "3",
-        "4",
-        "5"
-    ],
-    "amount": 1000,
-    "paid_by": "2",
-    "group_id": "1",
-    "date":"2024-02-16",
-    "bill_name":"Electricity Bill",
-    "split_type":"equal",
-    "notes":"Electricity Bill Paid By Rupali"
-}
+1. Views (`views.py`):
+   - `AddUserApiView`: Handles the creation of users.
+   - `LoginApiView`: Handles user login and generates JWT tokens.
+   - `CreateGroupApiView`: Handles the creation of groups.
+   - `AddUserToGroupApiView`: Manages the addition of users to existing groups.
+   - `CreateExpenseApiView`: Handles the creation of expenses, including the logic for splitting expenses among group members.
+   - `ShowGroupDetailsApiView`: Retrieves and displays details of group expenses.
 
-{
-    "users" : [
-        "2",
-        "3",
-        "4",
-        "5"
-    ],
-    "amount": 1200,
-    "paid_by": "5",
-    "group_id": "1",
-    "date":"2024-02-16",
-    "bill_name":"Friends Outing Bill",
-    "split_type":"percentage",
-    "percentages":[40,20,20,20],
-    "notes":"Friends Outing Bill Paid By Sakshi"
-}
+2. Models (`models.py`):
+   - `User`: Represents a user.
+   - `Group`: Represents a group of users.
+   - `Bill`: Represents an expense bill, including details like amount, date, and split type.
+   - `Debt`: Represents debts between users, used for tracking repayments.
+   - `BillUser`: Represents individual user details for a bill, including their paid and owed shares.
+
+3. URLs (`urls.py`):
+   - Defines the API endpoints for adding users, logging in, creating groups, adding users to groups, creating expenses, and retrieving group details.
