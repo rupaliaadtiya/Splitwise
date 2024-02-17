@@ -179,7 +179,7 @@ LOGGING = {
     },
 }
 CRONJOBS = [
-    ('*/1 * * * *', 'expense.cron.send_weekly_email')
+    ('0 0 * * 0', 'expense.cron.send_weekly_summary_email'), 
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
