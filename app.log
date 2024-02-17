@@ -66,3 +66,92 @@ C:\xampp\htdocs\splitwisebackend\splitwise\settings.py changed, reloading.
 Watching for file changes with StatReloader
 C:\xampp\htdocs\splitwisebackend\splitwise\settings.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"POST /api/addUser HTTP/1.1" 200 37
+"POST /api/addUser HTTP/1.1" 200 37
+"POST /api/addUser HTTP/1.1" 200 37
+"POST /api/createGroup HTTP/1.1" 200 40
+"POST /api/addUserToGroup HTTP/1.1" 200 46
+"POST /api/addUserToGroup HTTP/1.1" 200 46
+"POST /api/addUserToGroup HTTP/1.1" 200 46
+Internal Server Error: /api/addExpense
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\splitwisebackend\expense\views.py", line 122, in post
+    send_expense_notification_email(user, per_member_share_dict.get(user, per_member_share), bill_name)
+  File "C:\xampp\htdocs\splitwisebackend\expense\views.py", line 23, in send_expense_notification_email
+    send_mail(subject, message, from_email, recipient_list, html_message=html_message)
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\mail\__init__.py", line 88, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\mail\message.py", line 300, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\mail\backends\smtp.py", line 93, in open
+    self.connection.starttls(context=self.ssl_context)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2288.0_x64__qbz5n2kfra8p0\Lib\smtplib.py", line 769, in starttls
+    self.ehlo_or_helo_if_needed()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2288.0_x64__qbz5n2kfra8p0\Lib\smtplib.py", line 611, in ehlo_or_helo_if_needed
+    if not (200 <= self.ehlo()[0] <= 299):
+                   ^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2288.0_x64__qbz5n2kfra8p0\Lib\smtplib.py", line 451, in ehlo
+    self.putcmd(self.ehlo_msg, name or self.local_hostname)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2288.0_x64__qbz5n2kfra8p0\Lib\smtplib.py", line 378, in putcmd
+    self.send(f'{s}{CRLF}')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2288.0_x64__qbz5n2kfra8p0\Lib\smtplib.py", line 365, in send
+    raise SMTPServerDisconnected('please run connect() first')
+smtplib.SMTPServerDisconnected: please run connect() first
+"POST /api/addExpense HTTP/1.1" 500 142820
+C:\xampp\htdocs\splitwisebackend\splitwise\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/addExpense HTTP/1.1" 200 42
+Not Found: /api/groupDetails
+"GET /api/groupDetails?id=1 HTTP/1.1" 404 35
+Not Found: /api/groupDetails
+"GET /api/groupDetails?id=3 HTTP/1.1" 404 35
+"GET /api/groupDetails?id=6 HTTP/1.1" 200 110
+"GET /api/groupDetails?id=6 HTTP/1.1" 200 110
+C:\xampp\htdocs\splitwisebackend\splitwise\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\xampp\htdocs\splitwisebackend\expense\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\xampp\htdocs\splitwisebackend\expense\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\xampp\htdocs\splitwisebackend\expense\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\xampp\htdocs\splitwisebackend\expense\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\xampp\htdocs\splitwisebackend\expense\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/addExpense
+"POST /api/addExpense HTTP/1.1" 500 61
+C:\xampp\htdocs\splitwisebackend\splitwise\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/addExpense HTTP/1.1" 200 42
+"GET /api/groupDetails?id=6 HTTP/1.1" 200 128
+C:\xampp\htdocs\splitwisebackend\splitwise\settings.py changed, reloading.
+Watching for file changes with StatReloader
