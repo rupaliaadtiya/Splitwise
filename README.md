@@ -27,7 +27,7 @@ API Contracts
   None
 * **Data Params**  
 {
-    "email": "rupali1@gmail.com",
+    "email": "rupali@gmail.com",
     "name": "Rupali",
     "mobile": "8872396530",
     "password": "Rupali@1234"
@@ -39,7 +39,13 @@ API Contracts
   **Content:**  
 ```
 {
-    "message": "User added successfully"
+    "message": "User added successfully",
+    "data": {
+        "id": 3,
+        "email": "rupali@gmail.com",
+        "name": "Rupali",
+        "mobile": "8872396530"
+    }
 }
 ```
 

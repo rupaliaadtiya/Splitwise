@@ -1,0 +1,46 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/var/www/html/SiplProject/Splitwise/splitwise/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 2396
+Not Found: /
+"GET / HTTP/1.1" 404 2396
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 2396
+Not Found: /api/v1/login
+"POST /api/v1/login HTTP/1.1" 404 3208
+Bad Request: /api/login
+"POST /api/login HTTP/1.1" 400 69
+"POST /api/addUser HTTP/1.1" 200 37
+Bad Request: /api/addUser
+"POST /api/addUser HTTP/1.1" 400 122
+"POST /api/login HTTP/1.1" 200 551
+"POST /api/login HTTP/1.1" 200 551
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/login HTTP/1.1" 200 551
+Bad Request: /api/addUser
+"POST /api/addUser HTTP/1.1" 400 50
+"POST /api/addUser HTTP/1.1" 201 120
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/login HTTP/1.1" 200 595
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+/var/www/html/SiplProject/Splitwise/account/views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /api/login HTTP/1.1" 200 617
+"POST /api/login HTTP/1.1" 200 617
+Bad Request: /api/addUser
+"POST /api/addUser HTTP/1.1" 400 50
+"POST /api/addUser HTTP/1.1" 201 118
